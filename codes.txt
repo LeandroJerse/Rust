@@ -1,0 +1,3 @@
+cargo check - verificar se compila
+cargo build -criar binário
+cargo run - cria binário e roda o programa
