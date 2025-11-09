@@ -7,6 +7,7 @@ Este repositório contém meus estudos e códigos em Rust, organizados por tópi
 - [Comandos Úteis](#-comandos-úteis)
 - [Conceitos Estudados](#-conceitos-estudados)
   - [1. Hello World](#1-hello-world)
+  - [2. Jogo de Adivinhação](#2-jogo-de-adivinhação-guessing-game)
 - [Projetos](#-projetos)
 - [Recursos de Estudo](#-recursos-de-estudo)
 - [Notas e Observações](#-notas-e-observações)
@@ -136,11 +137,9 @@ match guess.cmp(&secret_number) {  // Pattern matching
 
 ## 🚀 Projetos
 
-_Seção a ser preenchida conforme novos projetos forem desenvolvidos_
-
 | Nome | Descrição | Conceitos Aplicados | Status |
 |------|-----------|---------------------|---------|
-| - | - | - | - |
+| **Guessing Game** | Jogo de adivinhação de números | Variáveis mutáveis, Input, Loops, Pattern Matching, Crates externos | ✅ Completo |
 
 ---
 
@@ -180,18 +179,18 @@ _Seção a ser preenchida conforme novos projetos forem desenvolvidos_
 - `///` - Comentário de documentação
 
 ### Conceitos a Estudar
-- [ ] Variáveis e Mutabilidade
-- [ ] Tipos de Dados
+- [x] Variáveis e Mutabilidade
+- [x] Tipos de Dados (básico: String, u32)
 - [ ] Funções
-- [ ] Controle de Fluxo (if, loop, while, for)
+- [x] Controle de Fluxo (if, loop, while, for) - *básico: loop e match*
 - [ ] Ownership (Posse)
-- [ ] Borrowing e References
+- [x] Borrowing e References - *básico: referências mutáveis*
 - [ ] Slices
 - [ ] Structs
-- [ ] Enums e Pattern Matching
-- [ ] Gerenciamento de Erros
+- [x] Enums e Pattern Matching - *básico: Ordering e match*
+- [x] Gerenciamento de Erros - *básico: expect() e Result*
 - [ ] Generics
-- [ ] Traits
+- [x] Traits - *básico: uso de traits (Rng)*
 - [ ] Lifetimes
 - [ ] Testes
 - [ ] Closures
@@ -204,22 +203,25 @@ _Seção a ser preenchida conforme novos projetos forem desenvolvidos_
 
 ## 🎯 Próximos Passos
 
-- [ ] Variáveis e tipos de dados
-- [ ] Sistema de ownership
+- [x] ~~Variáveis e tipos de dados~~ ✅
+- [x] ~~Criar primeiro projeto prático~~ ✅
+- [ ] Aprofundar em Ownership e Borrowing
 - [ ] Structs e métodos
-- [ ] Enums e pattern matching
-- [ ] Criar primeiro projeto prático
+- [ ] Aprofundar em Enums e pattern matching
+- [ ] Tratamento de erros com Result e Option
+- [ ] Coleções (Vec, HashMap, etc)
 
 ---
 
 ## 📊 Progresso
 
 - **Início dos estudos:** Novembro 2025
-- **Conceitos dominados:** 1
-- **Projetos completos:** 0
-- **Exercícios resolvidos:** 0
+- **Conceitos dominados:** 2 (Hello World, Guessing Game)
+- **Projetos completos:** 1 (Guessing Game)
+- **Crates utilizadas:** 1 (rand)
+- **Conceitos parcialmente aprendidos:** 6 (variáveis, tipos, loops, pattern matching, borrowing, traits)
 
 ---
 
-**Última atualização:** 08/11/2025
+**Última atualização:** 09/11/2025
 
