@@ -1,0 +1,50 @@
+# Arquivos de build do Rust
+target/
+Cargo.lock  # Incluir apenas em bibliotecas; para binários, commitar
+
+# Arquivos de backup e temporários
+**/*.rs.bk
+*.pdb
+
+# IDEs e Editores
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# Arquivos de debug
+debug/
+*.dSYM/
+
+# Arquivos do sistema operacional
+Thumbs.db
+.DS_Store
+
+# Cache do Rust Analyzer
+.rust-analyzer/
+
+# Arquivos de documentação gerada
+doc/
+
+# Arquivos de flycheck (Emacs)
+flycheck_*.rs
+flycheck*/
+
+# Arquivos temporários do Cargo
+**/*.rs.bk
+**/*.orig
+
+# Profiling
+*.profdata
+*.profraw
+
+# Benchmarking
+criterion/
+bench/
+
+# LLVM
+*.ll
+*.bc
+

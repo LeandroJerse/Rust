@@ -1,3 +1,5 @@
 cargo check - verificar se compila
-cargo build -criar binário
+cargo build -criar binário em debug
+cargo build --release - cria o binário em release, gera código mais eficiente
 cargo run - cria binário e roda o programa
+cargo update - da update nas dependências

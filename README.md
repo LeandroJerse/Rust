@@ -89,6 +89,51 @@ cargo clippy
 
 ---
 
+### 2. Jogo de Adivinhação (Guessing Game)
+**Data:** Novembro 2025  
+**Diretório:** `guessing_game/`
+
+#### O que aprendi:
+- **Variáveis mutáveis** - Uso de `let mut` para criar variáveis que podem mudar
+- **Input do usuário** - Leitura de dados com `std::io::stdin()`
+- **Dependências externas** - Adicionar e usar crates (biblioteca `rand`)
+- **Loops infinitos** - Uso de `loop` para repetir até uma condição
+- **Pattern Matching** - Uso de `match` para comparar valores e tratar casos
+- **Error Handling** - Tratamento de erros na conversão de String para número
+- **Shadowing** - Reutilizar nome de variável com tipo diferente
+- **Conversão de tipos** - Parse de String para u32
+- **Comparações** - Uso do enum `Ordering` (Less, Equal, Greater)
+
+#### Códigos:
+- **`guessing_game/src/main.rs`** - Jogo completo de adivinhação
+
+#### Conceitos-chave:
+```rust
+use std::io;                    // Importar biblioteca
+use rand::Rng;                  // Importar trait
+
+let mut guess = String::new();  // Variável mutável
+io::stdin().read_line(&mut guess) // Referência mutável
+    .expect("Failed");          // Tratamento de erro básico
+
+let guess: u32 = guess.trim().parse() // Shadowing + conversão
+    .expect("Please type a number!");
+
+match guess.cmp(&secret_number) {  // Pattern matching
+    Ordering::Less => println!("Too small!"),
+    Ordering::Greater => println!("Too big!"),
+    Ordering::Equal => {
+        println!("You win!");
+        break;                     // Sair do loop
+    }
+}
+```
+
+#### Dependências utilizadas:
+- `rand = "0.9.2"` - Geração de números aleatórios
+
+---
+
 ## 🚀 Projetos
 
 _Seção a ser preenchida conforme novos projetos forem desenvolvidos_
