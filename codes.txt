@@ -1,5 +1,34 @@
-cargo check - verificar se compila
-cargo build -criar binário em debug
-cargo build --release - cria o binário em release, gera código mais eficiente
-cargo run - cria binário e roda o programa
-cargo update - da update nas dependências
+# COMANDOS CARGO - COMPILAÇÃO E EXECUÇÃO
+cargo check           # Verificar se compila (sem gerar binário)
+cargo build           # Criar binário em debug (target/debug/)
+cargo build --release # Criar binário otimizado em release (target/release/)
+cargo run             # Compilar e executar o programa
+cargo run --release   # Compilar (otimizado) e executar
+
+# GERENCIAMENTO DE PROJETOS
+cargo new nome_projeto      # Criar novo projeto binário
+cargo new nome_projeto --lib # Criar nova biblioteca
+cargo init                  # Inicializar projeto na pasta atual
+cargo update                # Atualizar dependências
+cargo clean                 # Limpar arquivos de build (target/)
+
+# DOCUMENTAÇÃO E QUALIDADE
+cargo doc             # Gerar documentação
+cargo doc --open      # Gerar e abrir documentação no navegador
+cargo test            # Executar todos os testes
+cargo fmt             # Formatar código (requer rustfmt)
+cargo clippy          # Analisar código com linter (requer clippy)
+
+# COMPILAÇÃO DIRETA COM RUSTC
+rustc arquivo.rs      # Compilar arquivo .rs diretamente
+rustc arquivo.rs -O   # Compilar com otimizações
+
+# GERENCIAMENTO DE DEPENDÊNCIAS
+cargo add nome_crate  # Adicionar dependência (requer cargo-edit)
+cargo search termo    # Buscar crates no crates.io
+cargo tree            # Visualizar árvore de dependências
+
+# INFORMAÇÕES
+cargo --version       # Ver versão do Cargo
+rustc --version       # Ver versão do compilador Rust
+cargo --list          # Listar todos os comandos disponíveis

@@ -20,6 +20,7 @@ Este repositório contém meus estudos e códigos em Rust, organizados por tópi
 ```bash
 # Compilar arquivo .rs diretamente
 rustc main.rs
+rustc main.rs -O              # Com otimizações
 
 # Verificar se o código compila (sem gerar binário)
 cargo check
@@ -27,41 +28,72 @@ cargo check
 # Compilar projeto (gera binário em target/debug/)
 cargo build
 
-# Compilar projeto otimizado para produção
+# Compilar projeto otimizado para produção (target/release/)
 cargo build --release
 
 # Compilar e executar
 cargo run
+cargo run --release           # Executar versão otimizada
 ```
 
 ### Gerenciamento de Projetos
 ```bash
-# Criar novo projeto
+# Criar novo projeto binário
 cargo new nome_do_projeto
 
 # Criar novo projeto como biblioteca
 cargo new nome_do_projeto --lib
 
+# Inicializar projeto na pasta atual
+cargo init
+
 # Atualizar dependências
 cargo update
 
-# Limpar arquivos de build
+# Limpar arquivos de build (target/)
 cargo clean
 ```
 
 ### Documentação e Testes
 ```bash
-# Gerar e abrir documentação
+# Gerar documentação
+cargo doc
+
+# Gerar e abrir documentação no navegador
 cargo doc --open
 
 # Executar testes
 cargo test
 
-# Formatar código
+# Formatar código (requer rustfmt)
 cargo fmt
 
 # Verificar código com clippy (linter)
 cargo clippy
+```
+
+### Gerenciamento de Dependências
+```bash
+# Adicionar dependência (requer cargo-edit)
+cargo add nome_crate
+
+# Buscar crates no crates.io
+cargo search termo
+
+# Visualizar árvore de dependências
+cargo tree
+```
+
+### Informações do Sistema
+```bash
+# Ver versão do Cargo
+cargo --version
+
+# Ver versão do compilador Rust
+rustc --version
+
+# Listar todos os comandos disponíveis
+cargo --list
 ```
 
 ---
@@ -145,11 +177,20 @@ match guess.cmp(&secret_number) {  // Pattern matching
 
 ## 📚 Recursos de Estudo
 
-### Livros e Documentação
-- [The Rust Programming Language (The Book)](https://doc.rust-lang.org/book/)
-- [Rust by Example](https://doc.rust-lang.org/rust-by-example/)
-- [The Rustonomicon](https://doc.rust-lang.org/nomicon/) - Tópicos avançados
-- [Rust Cookbook](https://rust-lang-nursery.github.io/rust-cookbook/)
+### 📖 Livro Principal
+**The Rust Programming Language**  
+*Steve Klabnik and Carol Nichols*  
+Rust 2018 Edition  
+[Versão online gratuita](https://doc.rust-lang.org/book/)
+
+Este é o livro oficial de Rust, também conhecido como "The Book". Cobrindo desde conceitos básicos até tópicos avançados de forma didática e prática.
+
+---
+
+### Livros e Documentação Complementares
+- [Rust by Example](https://doc.rust-lang.org/rust-by-example/) - Aprenda com exemplos práticos
+- [The Rustonomicon](https://doc.rust-lang.org/nomicon/) - Tópicos avançados e unsafe Rust
+- [Rust Cookbook](https://rust-lang-nursery.github.io/rust-cookbook/) - Receitas para problemas comuns
 
 ### Exercícios e Prática
 - [Rustlings](https://github.com/rust-lang/rustlings) - Exercícios interativos
@@ -223,5 +264,5 @@ match guess.cmp(&secret_number) {  // Pattern matching
 
 ---
 
-**Última atualização:** 09/11/2025
+**Última atualização:** 13/11/2025
 
