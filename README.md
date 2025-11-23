@@ -8,6 +8,10 @@ Este repositório contém meus estudos e códigos em Rust, organizados por tópi
 - [Conceitos Estudados](#-conceitos-estudados)
   - [1. Hello World](#1-hello-world)
   - [2. Jogo de Adivinhação](#2-jogo-de-adivinhação-guessing-game)
+  - [3. Variáveis e Mutabilidade](#3-variáveis-e-mutabilidade)
+  - [4. Controle de Fluxo - Condicionais](#4-controle-de-fluxo---condicionais)
+  - [5. Controle de Fluxo - Loops](#5-controle-de-fluxo---loops)
+  - [6. Structs e Métodos](#6-structs-e-métodos)
 - [Projetos](#-projetos)
 - [Recursos de Estudo](#-recursos-de-estudo)
 - [Notas e Observações](#-notas-e-observações)
@@ -167,11 +171,167 @@ match guess.cmp(&secret_number) {  // Pattern matching
 
 ---
 
+### 3. Variáveis e Mutabilidade
+**Data:** Novembro 2025  
+**Diretório:** `variables/`
+
+#### O que aprendi:
+- **Variáveis imutáveis por padrão** - Variáveis em Rust são imutáveis por padrão
+- **Variáveis mutáveis** - Uso de `let mut` para permitir mudanças
+- **Interpolação de strings** - Uso de `{}` no `println!()` para formatar valores
+
+#### Códigos:
+- **`variables/src/main.rs`** - Exemplo de variável mutável
+
+#### Conceitos-chave:
+```rust
+let mut x = 5;              // Variável mutável
+println!("the value of x is {}", x);  // Interpolação
+x = 6;                       // Modificar valor
+```
+
+---
+
+### 4. Controle de Fluxo - Condicionais
+**Data:** Novembro 2025  
+**Diretório:** `branches/`
+
+#### O que aprendi:
+- **Estruturas condicionais** - Uso de `if` e `else`
+- **Expressões booleanas** - Comparações retornam valores booleanos
+- **Blocos condicionais** - Sintaxe de `if/else` em Rust
+
+#### Códigos:
+- **`branches/src/main.rs`** - Exemplo de condicionais
+
+#### Conceitos-chave:
+```rust
+if number < 5 {
+    println!("condition was true");
+} else {
+    println!("condition was false");
+}
+```
+
+---
+
+### 5. Controle de Fluxo - Loops
+**Data:** Novembro 2025  
+**Diretório:** `loops/`
+
+#### O que aprendi:
+- **Loop infinito** - Uso de `loop` para loops infinitos
+- **Retornar valores de loops** - Usar `break` com valor para retornar
+- **Loops while** - Uso de `while` para loops condicionais
+- **Loops for** - Iterar sobre coleções e ranges
+- **Ranges** - Uso de `(0..4)` e `.rev()` para iterar em ordem reversa
+- **Método iter()** - Iterar sobre arrays/coleções
+
+#### Códigos:
+- **`loops/src/main.rs`** - Exemplos de todos os tipos de loops
+
+#### Conceitos-chave:
+```rust
+// Loop infinito com retorno
+let result = loop {
+    counter += 1;
+    if counter == 10 {
+        break counter * 2;  // Retorna valor
+    }
+};
+
+// Loop while
+while number != 0 {
+    println!("{}", number);
+    number -= 1;
+}
+
+// Loop for sobre coleção
+for element in collection.iter() {
+    println!("{}", element);
+}
+
+// Loop for sobre range reverso
+for number in (0..4).rev() {
+    println!("{}", number);
+}
+```
+
+---
+
+### 6. Structs e Métodos
+**Data:** Novembro 2025  
+**Diretório:** `rectangle/`
+
+#### O que aprendi:
+- **Definir structs** - Criar tipos customizados com `struct`
+- **Campos de struct** - Definir propriedades de uma struct
+- **Implementação de métodos** - Uso de `impl` para adicionar métodos
+- **Métodos associados** - Funções que retornam instâncias (construtores)
+- **Self e &self** - Referências para a própria instância
+- **Métodos mutáveis** - Uso de `&mut self` para modificar a struct
+- **Métodos com múltiplos parâmetros** - Métodos que recebem referências a outras instâncias
+- **Comparações entre structs** - Comparar propriedades de diferentes instâncias
+- **Derive Debug** - Atributo `#[derive(Debug)]` para imprimir structs
+- **Field init shorthand** - Sintaxe curta quando nome do campo = variável
+- **Formatação Debug** - Uso de `{:?}` para imprimir structs
+
+#### Códigos:
+- **`rectangle/src/main.rs`** - Struct Rectangle com métodos
+
+#### Conceitos-chave:
+```rust
+#[derive(Debug)]  // Permite imprimir com {:?}
+struct Rectangle {
+    width: u32,
+    height: u32,
+}
+
+impl Rectangle {
+    // Método associado (construtor) - chamado com ::
+    fn new_rectangle(width: u32, height: u32) -> Rectangle {
+        Rectangle { width, height }  // Field init shorthand
+    }
+    
+    // Método de instância (empresta self)
+    fn area(&self) -> u32 {
+        self.width * self.height
+    }
+    
+    // Método mutável (empresta mutável)
+    fn grow_width(&mut self) {
+        self.width += 1;
+    }
+    
+    // Método com múltiplos parâmetros (compara com outra instância)
+    fn can_hold(&self, other: &Rectangle) -> bool {
+        self.width > other.width && self.height > other.height
+    }
+}
+
+// Uso de método associado (não precisa de instância)
+let mut rect = Rectangle::new_rectangle(30, 50);
+println!("Area: {}", rect.area());
+println!("Rectangle: {:?}", rect);  // Debug formatting
+
+let rect1 = Rectangle::new_rectangle(30, 50);
+let rect2 = Rectangle::new_rectangle(10, 40);
+let rect3 = Rectangle::new_rectangle(60, 45);
+println!("Can rect1 hold rect2? {}", rect1.can_hold(&rect2));
+println!("Can rect1 hold rect3? {}", rect1.can_hold(&rect3));
+```
+
+---
+
 ## 🚀 Projetos
 
 | Nome | Descrição | Conceitos Aplicados | Status |
 |------|-----------|---------------------|---------|
 | **Guessing Game** | Jogo de adivinhação de números | Variáveis mutáveis, Input, Loops, Pattern Matching, Crates externos | ✅ Completo |
+| **Variables** | Estudo de variáveis mutáveis | Variáveis, Mutabilidade, Interpolação | ✅ Completo |
+| **Branches** | Estruturas condicionais | if/else, Expressões booleanas | ✅ Completo |
+| **Loops** | Todos os tipos de loops | loop, while, for, ranges, iterators | ✅ Completo |
+| **Rectangle** | Struct com métodos | Structs, impl, métodos, Debug trait | ✅ Completo |
 
 ---
 
@@ -220,22 +380,22 @@ Este é o livro oficial de Rust, também conhecido como "The Book". Cobrindo des
 - `///` - Comentário de documentação
 
 ### Conceitos a Estudar
-- [x] Variáveis e Mutabilidade
-- [x] Tipos de Dados (básico: String, u32)
-- [ ] Funções
-- [x] Controle de Fluxo (if, loop, while, for) - *básico: loop e match*
-- [ ] Ownership (Posse)
-- [x] Borrowing e References - *básico: referências mutáveis*
+- [x] Variáveis e Mutabilidade ✅
+- [x] Tipos de Dados (básico: String, u32, u32) ✅
+- [x] Funções (básico: definição e chamada) ✅
+- [x] Controle de Fluxo (if, loop, while, for) ✅
+- [ ] Ownership (Posse) - *próximo tópico*
+- [x] Borrowing e References - *básico: &self, &mut self*
 - [ ] Slices
-- [ ] Structs
+- [x] Structs ✅
 - [x] Enums e Pattern Matching - *básico: Ordering e match*
 - [x] Gerenciamento de Erros - *básico: expect() e Result*
 - [ ] Generics
-- [x] Traits - *básico: uso de traits (Rng)*
+- [x] Traits - *básico: Debug, Rng*
 - [ ] Lifetimes
 - [ ] Testes
 - [ ] Closures
-- [ ] Iterators
+- [x] Iterators - *básico: .iter(), ranges*
 - [ ] Smart Pointers
 - [ ] Concorrência
 - [ ] Async/Await
@@ -246,21 +406,29 @@ Este é o livro oficial de Rust, também conhecido como "The Book". Cobrindo des
 
 - [x] ~~Variáveis e tipos de dados~~ ✅
 - [x] ~~Criar primeiro projeto prático~~ ✅
-- [ ] Aprofundar em Ownership e Borrowing
-- [ ] Structs e métodos
-- [ ] Aprofundar em Enums e pattern matching
+- [x] ~~Structs e métodos~~ ✅
+- [x] ~~Controle de fluxo completo (if, loops)~~ ✅
+- [ ] **Ownership e Borrowing** - *Próximo tópico principal*
+- [ ] Enums mais complexos e pattern matching avançado
 - [ ] Tratamento de erros com Result e Option
 - [ ] Coleções (Vec, HashMap, etc)
+- [ ] Módulos e organização de código
 
 ---
 
 ## 📊 Progresso
 
 - **Início dos estudos:** Novembro 2025
-- **Conceitos dominados:** 2 (Hello World, Guessing Game)
-- **Projetos completos:** 1 (Guessing Game)
+- **Conceitos dominados:** 6 (Hello World, Guessing Game, Variables, Branches, Loops, Structs)
+- **Projetos completos:** 5 (Guessing Game, Variables, Branches, Loops, Rectangle)
 - **Crates utilizadas:** 1 (rand)
-- **Conceitos parcialmente aprendidos:** 6 (variáveis, tipos, loops, pattern matching, borrowing, traits)
+- **Conceitos fundamentais aprendidos:** 
+  - ✅ Variáveis e mutabilidade
+  - ✅ Controle de fluxo (if, loop, while, for)
+  - ✅ Structs e métodos
+  - ✅ Borrowing básico (&self, &mut self)
+  - ✅ Traits básicas (Debug, Rng)
+  - ✅ Pattern matching básico
 
 ---
 
